@@ -1,0 +1,29 @@
+@startuml
+skinparam monochrome true
+
+'default
+left to right direction
+
+:User: << User Attribute >>
+:Another User: << User Attribute 2 >>
+:A third User: << User Attribute 3 >>
+
+rectangle Some_use_cases {
+    (Use Case 1)
+    (Use Case 2)
+}
+
+rectangle Webpage {
+    (Create Application)
+    (Get Application Details)
+}
+
+:A third User:  --> (Use Case 1)
+:A third User:  --> (Use Case 2)
+
+(Get Application Details) <-- :User: 
+
+:Another User: --> (Create Application)
+:Another User: --> (Get Application Details)
+
+@enduml

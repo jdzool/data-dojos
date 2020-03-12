@@ -1,0 +1,32 @@
+@startuml
+skinparam monochrome true
+
+
+ (*) --> "Data File Loaded"
+
+    if "Did column level data type assertion pass?" then
+
+            -down->[yes]  "Create Ingestion Hive Table 1"
+
+        -down-> ===B1===
+        else
+            -right->[no] "Add errors to data types report" 
+        end if
+
+===B1=== -down-> if "Did basic business rules pass" then
+            -down->[yes]  "Add Ingestion Hive Table 2"
+        -down-> ===B2===
+        else
+            -right->[no] "Add errors to basic business rules report" 
+        end if
+
+
+===B2=== -down-> if "Did conditional validation rules pass" then
+            -down->[yes]  "Add Ingestion Hive Table 3"
+        -down-> "Data ready for analysis"
+        else
+            -right->[no] "Add errors to conditional validation rules report" 
+        end if
+
+
+@enduml

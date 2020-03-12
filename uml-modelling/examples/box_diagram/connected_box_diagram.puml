@@ -1,0 +1,33 @@
+@startuml
+
+
+skinparam monochrome true
+skinparam linetype polyline
+
+rectangle Request {
+
+}
+
+rectangle User {
+
+}
+
+rectangle Submission {
+
+}
+
+rectangle DataHub {
+
+}
+
+rectangle Response {
+
+}
+
+Request -right-> User : Made against
+User -right-> Submission : Submits
+Submission -right-> DataHub : Save to
+DataHub -right-> Response : Creates 
+Response --> User : Give feedback
+
+@enduml

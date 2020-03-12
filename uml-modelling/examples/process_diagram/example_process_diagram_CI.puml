@@ -1,0 +1,19 @@
+
+@startuml
+skinparam monochrome true
+
+partition "CI Environment" {
+    (*) --> "Code Pushed"
+    -right-> "PyLint"
+    --> ===B1===  
+    --> "Run Fast Tests"
+    --> ===B2===
+    ===B1=== --> "Static Code Analysis"
+    --> ===B2===
+    --> "Publish Data Pipeline Artefacts (.png)"
+}
+-down-> ===B3===
+
+
+
+@enduml
